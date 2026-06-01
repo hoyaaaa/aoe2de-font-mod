@@ -58,19 +58,6 @@ AoE2DE はゲーム内テキストのレンダリングにビットマップフ�
 
 ---
 
-## おすすめフォント
-
-TTF/OTF 形式のフォントであれば使用可能です。
-
-| フォント | スタイル | ダウンロード |
-|---|---|---|
-| 조선100년체 (朝鮮百年体) | クラシック韓国明朝体 | [chosun.com](https://fontdown.chosun.com/100/ChosunCentennial_ttf.zip) |
-| 덕온공주체 (徳温公主体) | 朝鮮宮廷書道体 | [hangeul.go.kr](https://hanfont.hangeul.go.kr/fonts/DeogonPrincess_TTF.zip) |
-| EBS 훈민정음체 | 木版活字スタイル | [ebs.co.kr](https://about.ebs.co.kr/kor/organization/font?tabVal=hunmin) |
-| Sam3KRFont (三国志3) | レトロピクセル | [GitHub](https://github.com/hurss/fonts) |
-
----
-
 ## ライセンス
 
 MIT

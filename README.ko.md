@@ -58,19 +58,6 @@ AoE2DE는 인게임 텍스트 렌더링에 비트맵 폰트 아틀라스 시스�
 
 ---
 
-## 추천 폰트
-
-TTF/OTF 형식의 폰트라면 모두 사용 가능합니다.
-
-| 폰트 | 스타일 | 다운로드 |
-|---|---|---|
-| 조선100년체 | 고전 한국 명조체 | [chosun.com](https://fontdown.chosun.com/100/ChosunCentennial_ttf.zip) |
-| 덕온공주체 | 조선시대 궁체 | [hangeul.go.kr](https://hanfont.hangeul.go.kr/fonts/DeogonPrincess_TTF.zip) |
-| EBS 훈민정음체 | 목판 활자 스타일 | [ebs.co.kr](https://about.ebs.co.kr/kor/organization/font?tabVal=hunmin) |
-| Sam3KRFont (삼국지3) | 레트로 픽셀 | [GitHub](https://github.com/hurss/fonts) |
-
----
-
 ## 라이선스
 
 MIT

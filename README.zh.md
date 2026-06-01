@@ -58,19 +58,6 @@ AoE2DE 使用位图字体图集系统渲染游戏内文字。本工具将：
 
 ---
 
-## 推荐字体
-
-支持所有 TTF/OTF 格式字体。
-
-| 字体 | 风格 | 下载 |
-|---|---|---|
-| 조선100년체 (朝鲜百年体) | 经典韩式衬线 | [chosun.com](https://fontdown.chosun.com/100/ChosunCentennial_ttf.zip) |
-| 덕온공주체 (德温公主体) | 朝鲜宫廷书法 | [hangeul.go.kr](https://hanfont.hangeul.go.kr/fonts/DeogonPrincess_TTF.zip) |
-| EBS 훈민정음체 | 木版活字风格 | [ebs.co.kr](https://about.ebs.co.kr/kor/organization/font?tabVal=hunmin) |
-| Sam3KRFont (三国志3) | 复古像素 | [GitHub](https://github.com/hurss/fonts) |
-
----
-
 ## 许可证
 
 MIT

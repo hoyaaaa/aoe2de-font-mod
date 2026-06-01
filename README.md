@@ -58,19 +58,6 @@ Original files are backed up automatically on first run to `fonts_atlas_backup/`
 
 ---
 
-## Recommended Fonts
-
-Any TTF/OTF font works. Some fonts tested with this tool:
-
-| Font | Style | Download |
-|---|---|---|
-| 조선100년체 (Chosun Centennial) | Classic Korean serif | [chosun.com](https://fontdown.chosun.com/100/ChosunCentennial_ttf.zip) |
-| 덕온공주체 (Deokon Princess) | Joseon calligraphy | [hangeul.go.kr](https://hanfont.hangeul.go.kr/fonts/DeogonPrincess_TTF.zip) |
-| EBS 훈민정음체 | Historical woodblock | [ebs.co.kr](https://about.ebs.co.kr/kor/organization/font?tabVal=hunmin) |
-| Sam3KRFont (삼국지3) | Retro Korean pixel | [GitHub](https://github.com/hurss/fonts) |
-
----
-
 ## License
 
 MIT
