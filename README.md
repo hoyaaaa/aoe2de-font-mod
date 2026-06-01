@@ -52,6 +52,7 @@ Original files are backed up automatically on first run to `fonts_atlas_backup/`
 
 ## Notes
 
+- **Font Style must be set to Serif** in the in-game options (Options → Interface → Font Style). The mod only affects the serif (`combined`) atlas — switching to Sans-serif will bypass it entirely.
 - Only the in-game text atlas (`combined`) is replaced. The sans-serif atlas and UI icons are untouched.
 - Game updates via Steam may overwrite the modified files. Re-run the script after updates.
 - The `wpfg/fonts` folder has no effect on the macOS version of the game.

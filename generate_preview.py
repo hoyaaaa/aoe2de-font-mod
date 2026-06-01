@@ -21,15 +21,15 @@ RED_LABEL   = (180, 60, 40)
 GREEN_LABEL = (60, 150, 70)
 
 SAMPLES = [
-    ('CIVILIZATION',                  '문명 선택',                      28, GOLD),
-    ('Holy Roman Empire',             '신성 로마 제국',                  34, WHITE),
-    ('UNITS',                         '유닛',                           20, GOLD_DIM),
-    ('Knight  ·  Archer  ·  Trebuchet','기사단  ·  궁수  ·  트레뷰셋',   22, WHITE),
-    ('BUILDINGS',                     '건물',                           20, GOLD_DIM),
-    ('Castle  ·  Town Center  ·  Monastery','성  ·  마을 회관  ·  수도원',22, WHITE),
-    ('TECHNOLOGIES',                  '기술',                           20, GOLD_DIM),
-    ('Bloodlines  ·  Plate Mail Armor','혈통  ·  판금 갑옷',             22, WHITE),
-    ('1453 — Fall of Constantinople', '1453 — 콘스탄티노폴리스의 함락',   18, DIM_TEXT),
+    ('CIVILIZATION',                        28, GOLD),
+    ('Holy Roman Empire',                   34, WHITE),
+    ('UNITS',                               20, GOLD_DIM),
+    ('Knight  ·  Archer  ·  Trebuchet',     22, WHITE),
+    ('BUILDINGS',                           20, GOLD_DIM),
+    ('Castle  ·  Town Center  ·  Monastery',22, WHITE),
+    ('TECHNOLOGIES',                        20, GOLD_DIM),
+    ('Bloodlines  ·  Plate Mail Armor',     22, WHITE),
+    ('1453 — Fall of Constantinople',       18, DIM_TEXT),
 ]
 
 def find_original_fonts():
@@ -38,9 +38,7 @@ def find_original_fonts():
         "/AgeOfEmpires2Data/resources/_common/wpfg/fonts"
     )
     en = os.path.join(wpfg, "TrajanPro-Regular.ttf")
-    ko = os.path.join(wpfg, "MalgunGothic.ttf")
-    return (en if os.path.isfile(en) else None,
-            ko if os.path.isfile(ko) else None)
+    return (en if os.path.isfile(en) else None)
 
 def load(path, size):
     try:
@@ -59,33 +57,25 @@ def draw_panel(draw, x, y, w, h, title, title_color):
               font=ImageFont.load_default())
 
 def generate(mod_font_path, output_path):
-    orig_en, orig_ko = find_original_fonts()
+    orig_en = find_original_fonts()
 
     img  = Image.new('RGB', (W, H), BG_DARK)
     draw = ImageDraw.Draw(img)
 
     draw_panel(draw, 20,  20, 520, 580,
-               '◀  BEFORE  —  Trajan Pro + MalgunGothic', RED_LABEL)
+               '◀  BEFORE  —  Trajan Pro', RED_LABEL)
     draw_panel(draw, 560, 20, 520, 580,
                f'▶  AFTER  —  {os.path.splitext(os.path.basename(mod_font_path))[0]}',
                GREEN_LABEL)
     draw.line([(543, 20),(543, 600)], fill=BORDER, width=2)
 
     y_off = 55
-    for en, ko, size, color in SAMPLES:
-        # BEFORE — English: TrajanPro, Korean: MalgunGothic
-        f_en = load(orig_en, size) if orig_en else ImageFont.load_default()
-        f_ko = load(orig_ko, size) if orig_ko else ImageFont.load_default()
-        draw.text((34, 20 + y_off), en, fill=color, font=f_en)
-        draw.text((34, 20 + y_off + size + 2), ko,
-                  fill=tuple(c // 2 for c in color), font=f_ko)
-
-        # AFTER — both English and Korean
+    for text, size, color in SAMPLES:
+        f_en  = load(orig_en, size) if orig_en else ImageFont.load_default()
         f_mod = load(mod_font_path, size)
-        draw.text((574, 20 + y_off), en, fill=color, font=f_mod)
-        draw.text((574, 20 + y_off + size + 2), ko, fill=color, font=f_mod)
-
-        y_off += size * 2 + 18
+        draw.text((34,  20 + y_off), text, fill=color, font=f_en)
+        draw.text((574, 20 + y_off), text, fill=color, font=f_mod)
+        y_off += size + 18
 
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     img.save(output_path)
