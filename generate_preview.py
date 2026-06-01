@@ -32,13 +32,15 @@ SAMPLES = [
     ('1453 — Fall of Constantinople', '1453 — 콘스탄티노폴리스의 함락',   18, DIM_TEXT),
 ]
 
-def find_original_font():
+def find_original_fonts():
     wpfg = os.path.expanduser(
         "~/Library/Application Support/Steam/steamapps/common/AoE2DE"
         "/AgeOfEmpires2Data/resources/_common/wpfg/fonts"
     )
-    path = os.path.join(wpfg, "TrajanPro-Regular.ttf")
-    return path if os.path.isfile(path) else None
+    en = os.path.join(wpfg, "TrajanPro-Regular.ttf")
+    ko = os.path.join(wpfg, "MalgunGothic.ttf")
+    return (en if os.path.isfile(en) else None,
+            ko if os.path.isfile(ko) else None)
 
 def load(path, size):
     try:
@@ -57,13 +59,13 @@ def draw_panel(draw, x, y, w, h, title, title_color):
               font=ImageFont.load_default())
 
 def generate(mod_font_path, output_path):
-    orig_font = find_original_font()
+    orig_en, orig_ko = find_original_fonts()
 
     img  = Image.new('RGB', (W, H), BG_DARK)
     draw = ImageDraw.Draw(img)
 
     draw_panel(draw, 20,  20, 520, 580,
-               '◀  BEFORE  —  Original', RED_LABEL)
+               '◀  BEFORE  —  Trajan Pro + MalgunGothic', RED_LABEL)
     draw_panel(draw, 560, 20, 520, 580,
                f'▶  AFTER  —  {os.path.splitext(os.path.basename(mod_font_path))[0]}',
                GREEN_LABEL)
@@ -71,12 +73,12 @@ def generate(mod_font_path, output_path):
 
     y_off = 55
     for en, ko, size, color in SAMPLES:
-        # BEFORE — English
-        f_orig = load(orig_font, size) if orig_font else ImageFont.load_default()
-        draw.text((34, 20 + y_off), en, fill=color, font=f_orig)
-        # BEFORE — Korean (dimmed, often missing in original)
+        # BEFORE — English: TrajanPro, Korean: MalgunGothic
+        f_en = load(orig_en, size) if orig_en else ImageFont.load_default()
+        f_ko = load(orig_ko, size) if orig_ko else ImageFont.load_default()
+        draw.text((34, 20 + y_off), en, fill=color, font=f_en)
         draw.text((34, 20 + y_off + size + 2), ko,
-                  fill=tuple(c // 2 for c in color), font=f_orig)
+                  fill=tuple(c // 2 for c in color), font=f_ko)
 
         # AFTER — both English and Korean
         f_mod = load(mod_font_path, size)
